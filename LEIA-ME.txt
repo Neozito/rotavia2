@@ -1,0 +1,20 @@
+ROTAVIA — SITE COMPLETO COM IMAC TRANSPARENTE
+
+Abra index.html para testar. Para publicar, envie o index.html e toda a pasta assets para public_html.
+
+Nesta versão:
+- As seis imagens do computador têm fundo transparente (WebP com canal alpha).
+- O Mac fica sempre no mesmo lugar; somente a tela interna muda.
+- A navegação por rolagem e por botões foi mantida.
+- A seção não utiliza vídeo para trocar os menus, para evitar travamentos.
+- As demais seções e os vídeos do site foram preservados.
+
+Configure contatos em assets/config.js e teste mapa e atendimento antes de publicar.
+Dados e interfaces apresentados como demonstração visual.
+
+IDENTIDADE VISUAL NOVA:
+- Logo horizontal PNG transparente: assets/rotavia-logo.png
+- Favicon padrão: assets/favicon.ico (também em PNG 32/192 e versão Apple)
+- Logo aplicada automaticamente no cabeçalho e rodapé.
+- As animações, mídias e as seis telas do scroll foram preservadas.
+- Para ver a nova identidade após atualizar o site, recarregue com Ctrl+F5.

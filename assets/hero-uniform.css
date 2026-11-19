@@ -1,0 +1,61 @@
+/* Rotavia: Hero em quatro etapas com o mesmo alinhamento. */
+/* O bloco de texto é fixo: a mudança de etapa não move títulos nem botões. */
+.hero-copy{
+  bottom: clamp(158px, 20vh, 225px);
+  width: min(715px, calc(100vw - 80px));
+  height: min(450px, calc(100svh - 240px));
+}
+.story-step{
+  inset: 0;
+  display: grid;
+  grid-template-rows: 25px 206px 105px auto;
+  row-gap: 14px;
+  align-content: start;
+  align-items: start;
+  justify-items: start;
+}
+.story-kicker{margin: 0;align-self:start;}
+.story-step h1,.story-step h2{
+  font-size: clamp(2.9rem, 4.6vw, 4.72rem);
+  line-height: 1.09;
+  margin: 0;
+  max-width: 100%;
+  text-wrap: initial;
+}
+.story-step h1 .accent,.story-step h2 .accent{white-space:nowrap;}
+.story-step p{
+  margin: 0;
+  max-width: 49ch;
+  line-height: 1.75;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+}
+.story-step .hero-buttons{align-self:start;}
+
+/* Em telas mais baixas, diminui tudo junto para não invadir a navegação. */
+@media (max-height:780px) and (min-width:721px){
+  .hero-copy{height: min(400px, calc(100svh - 215px));bottom:clamp(115px,17vh,155px);}
+  .story-step{grid-template-rows: 22px 166px 90px auto;row-gap:12px;}
+  .story-step h1,.story-step h2{font-size:clamp(2.7rem,4.15vw,4.2rem)}
+  .story-step p{font-size:clamp(.9rem,1.16vw,1.03rem);line-height:1.66;}
+}
+@media (max-width:720px){
+  .hero-copy{
+    left:24px;
+    width: calc(100vw - 48px);
+    bottom: clamp(92px, 14vh, 122px);
+    height: min(360px, calc(100svh - 205px));
+  }
+  .story-step{grid-template-rows:20px minmax(116px,auto) minmax(76px,auto) auto;row-gap:11px;}
+  .story-step h1,.story-step h2{font-size:clamp(2.15rem,8vw,3.15rem);line-height:1.09;}
+  .story-step h1 .accent,.story-step h2 .accent{white-space:normal;}
+  .story-step p{font-size:.87rem;line-height:1.6;max-width:44ch;}
+  .story-step .hero-buttons{gap:9px;}
+  .story-step .hero-buttons .btn{min-height:46px;padding:0 13px;font-size:.76rem;}
+}
+@media (max-width:395px){
+  .hero-copy{bottom:94px;height:min(344px,calc(100svh - 182px));}
+  .story-step{grid-template-rows:20px minmax(113px,auto) minmax(79px,auto) auto;row-gap:9px;}
+  .story-step h1,.story-step h2{font-size:clamp(2.02rem,8.5vw,2.3rem)}
+  .story-step p{font-size:.82rem;line-height:1.6;}
+  .story-step .hero-buttons .btn{font-size:.72rem;}
+}

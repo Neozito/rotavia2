@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#03070b">
+  <meta name="description" content="Rastreamento veicular inteligente: localização em tempo real, alertas, tecnologia e controle do seu veículo onde você estiver.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rotavia — Rastreamento veicular inteligente">
+  <meta property="og:description" content="Tecnologia que acompanha seu veículo e aproxima você da tranquilidade.">
+  <meta property="og:image" content="assets/poster.jpg">
+  <title>Rotavia — Rastreamento veicular inteligente</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Rotavia">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#03070b;--bg2:#080e14;--panel:#0b131b;--panel2:#0d1720;--stroke:rgba(141,187,209,.14);--ink:#f2f8fa;--muted:#97abb8;--cyan:#31d8f5;--cyan2:#04a9ef;--cyan-soft:rgba(49,216,245,.10);--head:'Manrope','Segoe UI',sans-serif;--body:'DM Sans','Segoe UI',sans-serif;--wrap:1180px}
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button,input,textarea,select{font:inherit}button{cursor:pointer}::selection{color:#001317;background:var(--cyan)}:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+    .icon{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.container{width:min(calc(100% - 64px),var(--wrap));margin-inline:auto}.eyebrow{color:var(--cyan);font-size:.75rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase;display:inline-flex;align-items:center;gap:13px}.eyebrow::before{content:'';width:22px;height:1px;background:currentColor;box-shadow:0 0 12px var(--cyan)}.headline{font:800 clamp(2.1rem,4.5vw,3.55rem)/1.13 var(--head);letter-spacing:-.055em;margin:15px 0 18px}.headline .accent,.accent{color:var(--cyan)}.section-lead{font-size:1.075rem;line-height:1.8;color:var(--muted);max-width:61ch}.section{position:relative;padding:116px 0}.section-title{max-width:780px}.centered{text-align:center;margin-inline:auto}.centered .eyebrow{justify-content:center}.centered .section-lead{margin-inline:auto}.section-dots{background-image:radial-gradient(rgba(53,184,228,.11) 1px,transparent 1px);background-size:26px 26px}
+    .btn{min-height:52px;padding:0 25px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:.89rem;font-weight:800;line-height:1.2;letter-spacing:-.015em;border:1px solid transparent;transition:transform .23s,border .23s,box-shadow .23s,background .23s;white-space:nowrap}.btn:hover{transform:translateY(-2px)}.btn-primary{background:linear-gradient(115deg,#46e4f6,#13bbe9);color:#03131c;box-shadow:0 8px 35px rgba(23,195,239,.22)}.btn-primary:hover{box-shadow:0 12px 48px rgba(23,195,239,.35)}.btn-outline{border-color:rgba(84,223,245,.55);color:#e9faff;background:rgba(4,19,30,.28)}.btn-outline:hover{border-color:var(--cyan);background:rgba(38,204,238,.12)}.btn-dark{background:#101a23;color:#e5f7fc;border-color:var(--stroke)}.btn .icon{width:18px;height:18px}.btn-sm{min-height:43px;padding-inline:18px;font-size:.82rem}.text-link{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-weight:700;font-size:.9rem}.text-link .icon{width:16px;height:16px;transition:transform .2s}.text-link:hover .icon{transform:translateX(4px)}
+    /* NAV */
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .28s,box-shadow .28s,border-color .28s;background:linear-gradient(180deg,rgba(0,4,8,.85),transparent);border-bottom:1px solid transparent}.site-header.is-scrolled,.site-header.menu-open{background:rgba(3,9,14,.94);box-shadow:0 10px 40px rgba(0,0,0,.25);border-color:rgba(255,255,255,.07);backdrop-filter:blur(18px)}.header-inner{min-height:86px;width:min(calc(100% - 64px),1340px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}.brand-mark{width:34px;height:40px;color:var(--cyan);filter:drop-shadow(0 0 9px rgba(27,190,243,.34))}.brand-words{display:flex;flex-direction:column;gap:0}.brand-words strong{font:800 1.35rem/1.1 var(--head);letter-spacing:-.055em}.brand-words strong span{color:var(--cyan)}.brand-words small{font-size:.51rem;font-weight:800;letter-spacing:.23em;color:#a1bdc9;margin-top:4px}.desktop-nav{display:flex;align-items:center;gap:clamp(14px,2vw,29px)}.desktop-nav a{font-size:.78rem;font-weight:700;color:#d5e0e5;transition:color .2s}.desktop-nav a:hover{color:var(--cyan)}.header-actions{display:flex;gap:10px;align-items:center}.menu-toggle{display:none;border:1px solid var(--stroke);color:#fff;background:rgba(255,255,255,.05);width:44px;height:44px;border-radius:9px;align-items:center;justify-content:center}.menu-toggle .icon{width:22px;height:22px}.mobile-nav{display:none}
+    /* SCROLL VIDEO HERO */
+    .hero-scroll{height:455vh;position:relative;background:#000}.hero-stage{position:sticky;top:0;height:100vh;height:100svh;min-height:500px;overflow:hidden;isolation:isolate;background:#000}.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;transform:scale(1.035)}.hero-stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(0,5,10,.91) 0%,rgba(0,6,12,.74) 24%,rgba(0,6,12,.28) 62%,rgba(0,4,9,.10) 100%),linear-gradient(0deg,#03070b 0%,rgba(2,6,10,.49) 16%,transparent 42%),linear-gradient(180deg,rgba(0,2,5,.6) 0%,transparent 32%)}.hero-stage::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.24;background:radial-gradient(ellipse at 74% 65%,rgba(22,176,245,.22),transparent 42%)}.hero-copy{position:absolute;z-index:5;left:max(32px,calc((100vw - 1180px)/2));bottom:clamp(130px,18vh,210px);width:min(650px,calc(100vw - 80px));height:360px;pointer-events:none}.story-step{position:absolute;inset:auto 0 0;opacity:0;transform:translateY(26px);filter:blur(5px);transition:opacity .45s ease,transform .45s ease,filter .45s ease;pointer-events:none}.story-step.is-active{opacity:1;transform:translateY(0);filter:none;pointer-events:auto}.story-kicker{display:inline-flex;align-items:center;gap:12px;color:#7de5f6;font-weight:800;text-transform:uppercase;letter-spacing:.17em;font-size:.72rem;margin-bottom:24px}.story-kicker::before{content:'';width:29px;height:1px;background:var(--cyan)}.story-step h1,.story-step h2{font:800 clamp(2.8rem,5.15vw,5.45rem)/1.08 var(--head);letter-spacing:-.063em;margin:0 0 23px;max-width:670px;text-wrap:balance;text-shadow:0 3px 32px rgba(0,0,0,.18)}.story-step p{font-size:clamp(1rem,1.35vw,1.18rem);color:#d2e2e8;max-width:49ch;margin:0 0 30px;line-height:1.8}.story-step .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}.hero-overline{position:absolute;z-index:5;top:123px;left:max(32px,calc((100vw - 1180px)/2));color:#a9c1ce;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.69rem;display:flex;gap:12px;align-items:center}.hero-overline .pulse{width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 0 6px rgba(49,216,245,.13);animation:breathe 2.6s ease-in-out infinite}@keyframes breathe{50%{box-shadow:0 0 0 11px rgba(49,216,245,.03)}}.hero-bottom{position:absolute;z-index:5;bottom:32px;left:max(32px,calc((100vw - 1180px)/2));right:max(32px,calc((100vw - 1180px)/2));display:flex;align-items:end;justify-content:space-between;gap:35px}.scroll-prompt{display:flex;gap:14px;align-items:center;color:#b1c5cf;font-size:.76rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.scroll-mouse{display:grid;place-items:start center;width:25px;height:39px;border:1px solid rgba(205,242,248,.65);border-radius:15px;padding-top:7px}.scroll-mouse:before{content:'';width:3px;height:9px;border-radius:8px;background:var(--cyan);animation:mouseScroll 1.7s infinite}@keyframes mouseScroll{to{transform:translateY(9px);opacity:0}}.story-progress{display:flex;align-items:center;gap:18px;color:#d8f2f9;font:700 .72rem var(--head);letter-spacing:.08em}.story-progress strong{font-size:.95rem}.story-progress .track{height:2px;width:145px;background:rgba(241,251,255,.28);overflow:hidden}.story-progress .track span{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 16px var(--cyan);transition:width .1s linear}.hero-edge{position:absolute;bottom:0;left:0;right:0;height:1px;z-index:6;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.7}.video-loader{position:absolute;inset:0;z-index:9;display:grid;place-items:center;background:#02070b;transition:opacity .5s,visibility .5s}.video-loader.done{opacity:0;visibility:hidden;pointer-events:none}.loader-orbit{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.1);border-top-color:var(--cyan);animation:spin .9s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+    /* TRUST BAR */
+    .trust-strip{border-bottom:1px solid var(--stroke);background:#060c11}.trust-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:0}.trust-item{padding:32px 20px;display:flex;gap:14px;align-items:center;justify-content:center}.trust-item:not(:last-child){border-right:1px solid var(--stroke)}.trust-item .icon{width:25px;height:25px;color:var(--cyan)}.trust-item strong{font:800 .89rem var(--head);letter-spacing:-.02em}.trust-item span{display:block;color:var(--muted);font-size:.75rem;margin-top:3px}
+    /* HOW */
+    .how{background:radial-gradient(ellipse at 50% 0,rgba(21,103,147,.10),transparent 44%),var(--bg)}.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}.how-card{position:relative;overflow:hidden;min-height:280px;padding:29px 25px;border:1px solid rgba(73,188,224,.19);border-radius:16px;background:linear-gradient(145deg,rgba(16,42,56,.64),rgba(7,13,19,.96) 62%);transition:transform .28s,border-color .28s,box-shadow .28s}.how-card:hover{transform:translateY(-7px);border-color:rgba(49,216,245,.58);box-shadow:0 24px 70px rgba(4,103,142,.14)}.how-card::after{content:'';position:absolute;inset:auto -80px -130px;min-height:200px;background:radial-gradient(circle,rgba(15,190,225,.12),transparent 65%);pointer-events:none}.how-card .number{position:absolute;right:23px;top:21px;font:700 .7rem var(--head);letter-spacing:.15em;color:#3b6172}.icon-box{width:59px;height:59px;display:grid;place-items:center;border-radius:14px;background:rgba(49,216,245,.07);border:1px solid rgba(49,216,245,.24);color:var(--cyan);margin-bottom:35px}.icon-box .icon{width:29px;height:29px;stroke-width:1.5}.how-card h3,.benefit h3{font:800 1.02rem/1.35 var(--head);margin:0 0 12px}.how-card p,.benefit p{color:var(--muted);font-size:.88rem;line-height:1.8;margin:0}
+    /* ABOUT */
+    .about{background:#070e14;border-block:1px solid var(--stroke)}.about-grid{display:grid;grid-template-columns:1.06fr 1fr;gap:clamp(40px,8vw,110px);align-items:center}.about-media{position:relative;padding:0 36px 36px 0}.about-photo{width:100%;aspect-ratio:1.14;object-fit:cover;border-radius:18px;border:1px solid rgba(126,211,243,.17);box-shadow:0 40px 80px rgba(0,0,0,.25)}.about-media::before{content:'';position:absolute;left:-28px;top:-24px;width:110px;height:110px;border-left:1px solid rgba(31,189,244,.53);border-top:1px solid rgba(31,189,244,.53)}.about-badge{position:absolute;right:0;bottom:0;border:1px solid rgba(59,206,242,.3);border-radius:14px;backdrop-filter:blur(16px);background:rgba(7,20,31,.93);padding:23px 26px;display:flex;gap:14px;align-items:center;box-shadow:0 18px 55px rgba(0,0,0,.3)}.about-badge .icon{color:var(--cyan);width:31px;height:31px}.about-badge strong{display:block;font:800 .99rem var(--head)}.about-badge span{display:block;color:#a8c2ce;font-size:.76rem}.about-text .section-lead{margin:0 0 19px}.about-text ul{padding:0;list-style:none;margin:29px 0 32px;display:grid;gap:15px}.about-text li{display:flex;align-items:flex-start;gap:12px;color:#c7d9e1;font-size:.92rem}.about-text li .icon{width:18px;height:18px;margin-top:3px;color:var(--cyan)}
+    /* BENEFITS */
+    .benefits{background:radial-gradient(ellipse at 94% 22%,rgba(19,119,150,.12),transparent 38%),var(--bg)}.benefit-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.benefit{padding:26px 24px 29px;border:1px solid var(--stroke);background:rgba(12,23,30,.68);border-radius:14px;min-height:219px}.benefit .icon{width:29px;height:29px;color:var(--cyan);margin-bottom:24px}.benefit:hover{border-color:rgba(49,216,245,.38)}.benefit-side{position:sticky;top:130px}.benefit-side .section-lead{margin:0 0 28px}
+    /* APP SHOWCASE */
+    .platform{background:#081118;border-block:1px solid var(--stroke);overflow:hidden}.platform-inner{display:grid;grid-template-columns:.78fr 1.22fr;gap:75px;align-items:center}.platform-copy{padding:40px 0}.platform-points{display:grid;gap:17px;margin:30px 0}.platform-points li{list-style:none;display:flex;gap:12px;color:#c9dce5;font-size:.9rem}.platform-points .icon{color:var(--cyan);width:19px;height:19px;margin-top:2px}.dashboard{position:relative;padding:20px;border:1px solid rgba(60,179,218,.24);border-radius:22px;background:linear-gradient(130deg,rgba(24,43,57,.7),rgba(6,11,17,1));box-shadow:0 30px 110px rgba(0,0,0,.52),0 0 90px rgba(14,156,215,.08);transform:perspective(1200px) rotateY(-4deg) rotateX(2deg)}.dashboard::before{content:'';position:absolute;inset:-1px;border-radius:22px;pointer-events:none;background:linear-gradient(130deg,rgba(74,230,248,.45),transparent 23%,transparent 72%,rgba(39,179,241,.16));mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);mask-composite:exclude;padding:1px}.dash-top{display:flex;justify-content:space-between;align-items:center;padding:3px 2px 16px;border-bottom:1px solid var(--stroke)}.dash-title{display:flex;align-items:center;gap:10px;font:800 .83rem var(--head)}.dash-title .icon{width:21px;height:21px;color:var(--cyan)}.dash-dots{display:flex;gap:6px}.dash-dots i{width:6px;height:6px;border-radius:50%;background:#273a46}.dash-dots i:first-child{background:#36d9f5}.dash-body{display:grid;grid-template-columns:1.5fr .65fr;gap:14px;padding-top:15px}.map-screen{position:relative;min-height:310px;overflow:hidden;border-radius:12px;background:#071b2b}.map-screen svg{width:100%;height:100%;min-height:310px;position:absolute;inset:0}.map-screen .map-label{position:absolute;left:15px;top:15px;padding:8px 12px;background:rgba(4,18,27,.83);color:#dceaf0;border:1px solid rgba(120,188,211,.17);border-radius:8px;font-size:.68rem;font-weight:700;backdrop-filter:blur(9px)}.map-screen .map-label .live-dot{display:inline-block;width:6px;height:6px;background:#38e8a3;border-radius:50%;margin-right:6px}.map-screen .map-zoom{position:absolute;bottom:15px;right:15px;width:27px;display:grid;gap:4px}.map-screen .map-zoom span{height:27px;display:grid;place-items:center;border-radius:5px;background:#173749;color:#a9d7e6;font-weight:700}.dash-side{display:grid;gap:12px}.metric{border:1px solid var(--stroke);border-radius:11px;background:#0d1b27;padding:17px 15px;display:flex;flex-direction:column;justify-content:center}.metric small{color:#7897a9;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:800}.metric strong{font:800 clamp(.9rem,1.45vw,1.35rem) var(--head);margin:7px 0 3px}.metric span{color:#a8bdca;font-size:.68rem}.metric .positive{color:#55e3b5}.demo-note{position:absolute;right:16px;bottom:-38px;color:#859aa6;font-size:.68rem;letter-spacing:.03em}
+    /* PLANS */
+    .plans{background:var(--bg)}.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:49px}.plan{display:flex;flex-direction:column;min-height:455px;padding:34px 30px;border:1px solid var(--stroke);border-radius:16px;background:linear-gradient(145deg,rgba(14,26,36,.8),rgba(6,11,17,1));position:relative;overflow:hidden}.plan.featured{border-color:rgba(49,216,245,.68);box-shadow:0 15px 70px rgba(16,167,209,.1)}.plan.featured::before{content:'';position:absolute;width:230px;height:230px;right:-100px;top:-120px;background:radial-gradient(circle,rgba(36,221,246,.18),transparent 72%)}.plan-tag{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:.69rem}.plan h3{font:800 1.6rem var(--head);letter-spacing:-.035em;margin:14px 0 8px}.plan p{color:var(--muted);font-size:.87rem;min-height:58px;margin:0}.plan-divider{height:1px;background:var(--stroke);margin:25px 0}.plan ul{display:grid;gap:13px;padding:0;margin:0 0 31px;list-style:none;flex:1}.plan li{font-size:.88rem;color:#c7d9e1;display:flex;gap:9px}.plan li .icon{width:17px;height:17px;color:var(--cyan);margin-top:2px}.plan .btn{width:100%}
+    /* CTA STRIP */
+    .banner-wrap{padding:0 0 95px}.cta-banner{border:1px solid rgba(49,216,245,.25);border-radius:22px;overflow:hidden;display:flex;gap:50px;align-items:center;justify-content:space-between;background:radial-gradient(ellipse at 90% 10%,rgba(29,165,209,.24),transparent 44%),linear-gradient(130deg,#0d1b28,#080e15);padding:45px 55px}.cta-banner h2{font:800 clamp(1.65rem,3vw,2.45rem)/1.22 var(--head);letter-spacing:-.045em;margin:10px 0}.cta-banner p{color:var(--muted);margin:0;max-width:48ch}.cta-banner .btn{flex-shrink:0}
+    /* MAP */
+    .location{border-block:1px solid var(--stroke);background:#071017}.location-grid{display:grid;grid-template-columns:.73fr 1.27fr;gap:65px;align-items:center}.location-info .section-lead{margin-bottom:28px}.contact-chip{display:flex;gap:12px;align-items:flex-start;color:#c7d9e2;font-size:.89rem;margin-bottom:22px}.contact-chip .icon{color:var(--cyan);width:23px;height:23px;margin-top:2px}.contact-chip strong{display:block;color:var(--ink);font-size:.92rem;margin-bottom:3px}.map-frame{height:380px;border-radius:16px;overflow:hidden;border:1px solid rgba(49,216,245,.22);background:#10212c;box-shadow:0 20px 80px rgba(0,0,0,.23)}.map-frame iframe{width:100%;height:100%;border:0;filter:saturate(.65) contrast(1.03)}.location-caption{font-size:.72rem;color:#7994a2;margin-top:14px}
+    /* CONTACT */
+    .contact{background:radial-gradient(ellipse at 20% 100%,rgba(23,105,153,.10),transparent 45%),var(--bg)}.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:90px;align-items:start}.contact-copy .section-lead{margin-bottom:30px}.contact-list{display:grid;gap:20px;margin-top:36px}.contact-row{display:flex;gap:14px;align-items:center;color:#d5e5eb;font-size:.9rem}.contact-icon{width:43px;height:43px;flex:0 0 43px;border-radius:10px;display:grid;place-items:center;color:var(--cyan);background:var(--cyan-soft);border:1px solid rgba(49,216,245,.19)}.contact-icon .icon{width:21px;height:21px;display:block;stroke-width:1.9}.contact-row>div>span{color:var(--muted);font-size:.77rem;display:block}.contact-row strong{font-weight:700}.form-card{padding:34px;border:1px solid rgba(81,186,223,.25);border-radius:18px;background:linear-gradient(145deg,rgba(17,36,49,.83),rgba(7,12,18,.96));box-shadow:0 26px 90px rgba(0,0,0,.21)}.form-card h3{font:800 1.32rem var(--head);letter-spacing:-.03em;margin:0 0 4px}.form-card>p{color:var(--muted);font-size:.87rem;margin:0 0 26px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:8px}.field.wide{grid-column:1/-1}.field label{color:#cbdce3;font-size:.75rem;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid rgba(144,187,206,.20);background:#0a151d;color:#f1f8fb;border-radius:9px;padding:13px 15px;outline:none;min-height:49px;transition:border-color .2s,box-shadow .2s}.field textarea{min-height:125px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#708b9a}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(49,216,245,.08)}.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2392bbc9' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:39px}.form-submit{width:100%;margin-top:22px}.form-note{font-size:.72rem;color:#8099a6;margin:13px 0 0}.form-feedback{display:none;border:1px solid rgba(57,212,244,.42);background:#0b222d;border-radius:9px;padding:15px;margin-top:18px;font-size:.84rem;color:#cbf3fa}.form-feedback.show{display:block}.form-feedback button{display:inline-flex;align-items:center;margin-top:11px;background:var(--cyan);border:0;color:#01202c;border-radius:7px;padding:9px 14px;font-weight:800}
+    /* FAQ */
+    .faq{background:#071017;border-top:1px solid var(--stroke)}.faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:85px}.faq-items{border-top:1px solid var(--stroke)}.faq details{border-bottom:1px solid var(--stroke)}.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;padding:23px 0;font:800 .95rem var(--head)}.faq summary::-webkit-details-marker{display:none}.faq summary .icon{width:20px;height:20px;color:var(--cyan);transition:transform .2s}.faq details[open] summary .icon{transform:rotate(45deg)}.faq details p{color:var(--muted);margin:-2px 30px 24px 0;font-size:.9rem;line-height:1.8}
+    /* FOOTER — NEO ARTE | PROPORÇÕES AJUSTADAS */
+    .footer{border-top:1px solid var(--stroke);background:#03080c}
+    .footer-main{display:grid;grid-template-columns:minmax(220px,1.15fr) minmax(210px,.95fr) minmax(250px,1.16fr) minmax(250px,1.08fr);gap:clamp(22px,2.2vw,34px);align-items:start;padding:54px 0 47px}
+    .footer-brand,.footer-contact-section,.footer-links,.footer-payments{min-width:0}
+    .footer-brand .brand-logo-footer{width:min(100%,240px);height:auto}
+    .footer-brand p{max-width:260px;color:var(--muted);font-size:.81rem;line-height:1.8;margin:20px 0 0}
+    .footer-heading{font:800 .86rem var(--head);letter-spacing:.012em;margin:0 0 16px;color:#f0f8fb}
+    .footer-contact{display:grid;gap:16px}
+    .footer-contact-item{display:grid;grid-template-columns:42px minmax(0,1fr);gap:11px;align-items:center;min-width:0}
+    .footer-contact-item .footer-contact-details{min-width:0}
+    .footer-contact-icon{width:42px;height:42px;border-radius:12px;border:1px solid rgba(49,216,245,.26);display:grid;place-items:center;background:rgba(31,73,86,.16);color:var(--cyan);transition:border-color .2s,background .2s}
+    .footer-contact-icon svg{display:block;width:20px;height:20px}
+    .footer-contact-icon .icon{fill:none;stroke:currentColor;width:19px;height:19px}
+    .footer-contact-item:hover .footer-contact-icon{border-color:rgba(49,216,245,.68);background:rgba(49,216,245,.10)}
+    .footer-contact-label{font-size:.71rem;color:#82a2b2;line-height:1.25;display:block;margin-bottom:3px}
+    .footer-contact-item strong{display:block;color:#dfeef3;font:700 .82rem/1.45 var(--body);letter-spacing:-.018em;white-space:nowrap}
+    .footer-contact-item:hover strong{color:var(--cyan)}
+    .footer-links{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,1.6vw,26px)}
+    .footer-links .group{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0}
+    .footer-links strong{font:800 .86rem var(--head);margin:0 0 6px;color:#f0f8fb}
+    .footer-links a{font-size:.8rem;color:#a5bac6;line-height:1.5;transition:color .2s}
+    .footer-links a:hover{color:var(--cyan)}
+    .footer-payments{display:flex;flex-direction:column;align-items:flex-start;gap:12px;border:0;padding:0;margin:0}
+    .footer-payments-copy{min-width:0}
+    .footer-payments .footer-heading{margin:0}
+    .footer-payment-image{width:100%;max-width:278px;height:auto;object-fit:contain;display:block}
+    .footer-social{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .footer-social-link{width:40px;height:40px;border-radius:12px;border:1px solid rgba(49,216,245,.24);background:rgba(31,73,86,.14);display:grid;place-items:center;color:#ffffff;transition:transform .2s,border-color .2s,background .2s,color .2s}
+    .footer-social-link .icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;display:block}
+    .footer-social-link:hover{transform:translateY(-2px);border-color:rgba(49,216,245,.68);background:rgba(49,216,245,.10);color:var(--cyan)}
+    .footer-social-link--whatsapp .icon,.footer-social-link--facebook .icon,.footer-social-link--tiktok .icon{fill:currentColor;stroke:none}
+    .footer-social-link--instagram .icon{width:19px;height:19px}
+    .footer-bottom{border-top:1px solid var(--stroke);padding:22px 0;color:#718f9d;font-size:.76rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-bottom .footer-credit{color:inherit;transition:color .2s}
+    .footer-bottom .footer-credit:hover,.footer-bottom .footer-credit:focus-visible{color:var(--cyan)}
+    .floating-wa{position:fixed;right:25px;bottom:25px;width:58px;height:58px;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:#19bf69;color:white;z-index:90;display:grid;place-items:center;box-shadow:0 12px 35px rgba(5,22,15,.45);transition:transform .2s,box-shadow .2s}
+    .floating-wa:hover{transform:translateY(-4px);box-shadow:0 15px 38px rgba(11,197,111,.3)}
+    .floating-wa svg{width:28px;height:28px;fill:currentColor;stroke:none}
+
+    @media(max-width:1080px){
+      .footer-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:35px 40px}
+      .footer-contact-item strong{white-space:normal;overflow-wrap:anywhere}
+      .footer-payments{max-width:340px}
+    }
+    @media(max-width:720px){
+      .footer-main{grid-template-columns:1fr;gap:31px;padding:44px 0 34px}
+      .footer-links{grid-template-columns:1fr 1fr;gap:18px}
+      .footer-payments{gap:11px;max-width:340px}
+      .footer-payment-image{width:min(100%,330px)}
+      .footer-bottom{gap:10px}
+      .footer-brand p{margin-top:14px}
+      .footer-contact-item strong{white-space:normal;overflow-wrap:anywhere}
+    }
+    @media(max-width:380px){.footer-links{gap:11px}.footer-contact-item strong{font-size:.78rem}.footer-payment-image{width:100%}.footer-social{gap:8px}.footer-social-link{width:38px;height:38px}}
+    
+    /* REVEAL */
+    .js .reveal{opacity:0;transform:translateY(23px);transition:opacity .7s ease,transform .7s ease}.js .reveal.visible{opacity:1;transform:none}
+    @media(max-width:1160px){.desktop-nav{gap:15px}.desktop-nav a{font-size:.75rem}.header-actions .btn{padding-inline:15px}.benefit-layout{gap:38px}.platform-inner{gap:40px}.location-grid,.contact-grid{gap:42px}}
+    @media(max-width:980px){.container{width:min(calc(100% - 44px),var(--wrap))}.header-inner{width:calc(100% - 44px)}.desktop-nav,.header-actions .btn{display:none}.menu-toggle{display:flex}.mobile-nav{display:flex;flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .28s;padding:0 22px;background:#050e14}.site-header.menu-open .mobile-nav{max-height:500px;padding-bottom:18px;border-top:1px solid var(--stroke)}.mobile-nav a{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#d6e5ec;font-size:.9rem}.how-grid{grid-template-columns:repeat(2,1fr)}.about-grid,.benefit-layout,.platform-inner,.location-grid,.contact-grid,.faq-layout{grid-template-columns:1fr;gap:45px}.benefit-side{position:static}.about-grid{gap:68px}.about-media{max-width:640px}.platform-copy{padding:0}.dashboard{max-width:760px;margin:0 auto}.faq-layout{gap:26px}.section{padding:90px 0}}
+    @media(max-width:720px){.hero-scroll{height:390vh}.hero-stage{min-height:490px}.hero-video{object-position:61% center}.hero-stage::after{background:linear-gradient(0deg,rgba(0,5,10,.98) 0%,rgba(0,5,10,.78) 36%,rgba(0,5,10,.12) 75%),linear-gradient(180deg,rgba(0,2,5,.55),transparent 31%)}.hero-overline{top:106px;left:24px;font-size:.62rem}.hero-copy{left:24px;bottom:116px;width:calc(100vw - 48px);height:320px}.story-kicker{font-size:.59rem;margin-bottom:14px}.story-step h1,.story-step h2{font-size:clamp(2.25rem,8.7vw,3.7rem);margin-bottom:15px;line-height:1.10}.story-step p{font-size:.88rem;line-height:1.65;margin-bottom:19px;max-width:41ch}.hero-buttons{gap:9px}.hero-buttons .btn{min-height:48px;padding:0 14px;font-size:.77rem}.hero-bottom{bottom:23px;left:24px;right:24px}.scroll-prompt{font-size:.65rem;gap:10px}.scroll-mouse{width:22px;height:34px}.story-progress{gap:10px}.story-progress .track{width:70px}.header-inner{min-height:72px}.brand-mark{width:30px;height:35px}.brand-words strong{font-size:1.16rem}.brand-words small{font-size:.44rem}.trust-inner{grid-template-columns:1fr;gap:0}.trust-item{padding:17px 0;justify-content:flex-start}.trust-item:not(:last-child){border-right:none;border-bottom:1px solid var(--stroke)}.trust-item .icon{width:23px;height:23px}.how-grid,.benefit-grid,.plan-grid{grid-template-columns:1fr}.how-card{min-height:210px}.how-card .icon-box{margin-bottom:22px}.about-media{padding-right:20px;padding-bottom:22px}.about-badge{padding:17px}.section{padding:77px 0}.section-lead{font-size:1rem}.headline{font-size:clamp(2rem,8vw,2.65rem)}.dashboard{transform:none;padding:10px;border-radius:15px}.dash-body{grid-template-columns:1fr}.dash-side{grid-template-columns:repeat(3,1fr);gap:7px}.metric{padding:12px 9px}.metric small{font-size:.54rem}.metric strong{font-size:.9rem}.metric span{font-size:.55rem}.map-screen,.map-screen svg{min-height:240px}.plan{min-height:auto}.cta-banner{padding:34px 26px;display:grid;gap:24px}.cta-banner .btn{justify-self:start}.banner-wrap{padding-bottom:70px}.map-frame{height:330px}.form-card{padding:24px 19px}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.floating-wa{width:53px;height:53px;right:17px;bottom:17px}.contact-grid{gap:35px}.faq summary{font-size:.88rem}.demo-note{position:static;text-align:right;padding-top:12px}}
+    @media(max-width:395px){.hero-copy{bottom:105px;height:330px}.story-step h1,.story-step h2{font-size:2.16rem}.hero-buttons .btn{font-size:.72rem}.story-step p{font-size:.82rem}.map-screen,.map-screen svg{min-height:210px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}.js .reveal{opacity:1;transform:none}}
+
+    /* Identidade Rotavia 2026 — logo PNG horizontal, sem fundos artificiais */
+    .brand-logo{display:block;width:224px;max-width:100%;height:auto;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 0 10px rgba(0,203,240,.065))}
+    .brand-logo-footer{width:245px}
+    @media(max-width:1160px){.brand-logo{width:205px}}
+    @media(max-width:720px){.brand-logo{width:188px}.brand-logo-footer{width:225px}}
+    @media(max-width:390px){.brand-logo{width:176px}}
+</style>
+  <link rel="stylesheet" href="assets/hero-uniform.css">
+  <link rel="stylesheet" href="assets/tracking.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="assets/config.js"></script>
+  <script defer src="assets/site.js"></script>
+  <script defer src="assets/tracking.js"></script>
+  <link rel="stylesheet" href="assets/platform-scroll.css">
+  <link rel="stylesheet" href="assets/transitions.css">
+</head>
+<body>
+  <div class="page-intro" id="pageIntro" aria-hidden="true"><div class="page-intro-inner"><img class="page-intro-logo" src="assets/rotavia-logo.png" alt=""><span class="page-intro-line"></span></div></div>
+  <!-- Ícones vetoriais locais: o site não depende de bibliotecas de ícones externas. -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.3-8 12-8 12S4 15.3 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 21 6v6c0 5.3-3.5 8.8-9 10-5.5-1.2-9-4.7-9-10V6l9-4Z"/><path d="m8.5 12 2.2 2.3 4.9-5"/></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.6"/><path d="M10 5h4M11 18.5h2"/><circle cx="12" cy="11" r="2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 6-2 7.5-2 8h16c0-.5-2-2-2-8ZM10 20a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.2 7.6a5 5 0 0 0 6 6l-7 7-4.1-4.1 7-7ZM8 9 3 4m4-2 2 2-2 3-3 2-2-2 2-3"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3M12 15v3"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h7a4 4 0 1 0 0-8H9a4 4 0 0 1 0-8h8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v6a4 4 0 0 1-4 4h-3M4 13H2v5h4v-6H4m16 1h2v5h-4v-6h2"/></symbol>
+    <symbol id="i-fleet" viewBox="0 0 24 24"><rect x="2" y="6" width="10" height="12" rx="2"/><rect x="13" y="3" width="9" height="15" rx="2"/><path d="M5 18v3m4-3v3m7-3v3m3-3v3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5L20 7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M4 3h5l2 5-3 2a17 17 0 0 0 6 6l2-3 5 2v5a2 2 0 0 1-2 2C9.5 22 2 14.5 2 5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7ZM11 13 22 2"/></symbol>
+    <symbol id="i-signal" viewBox="0 0 24 24"><path d="M2 19v3m5-7v7m5-11v11m5-15v15m5-20v20"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="m5 11 1.8-5A2 2 0 0 1 8.7 4h6.6a2 2 0 0 1 1.9 2L19 11M4 11h16v8H4v-8Zm3 8v2m10-2v2M7 15h2m6 0h2"/></symbol>
+    <symbol id="i-install-tracker" viewBox="0 0 24 24"><path d="M9.4 6.9a3.7 3.7 0 0 1 5.2 0M6.9 4.4a7.2 7.2 0 0 1 10.2 0"/><path d="M5 20.5v-6l1.9-3.7a1.8 1.8 0 0 1 1.6-1h7a1.8 1.8 0 0 1 1.6 1l1.9 3.7v6h-3v-2H8v2H5Z"/><path d="M5 14.5h14M8.4 16.9h.01m7.2 0h.01"/></symbol>
+    <symbol id="i-connect-platform" viewBox="0 0 24 24"><rect x="5.5" y="2.5" width="13" height="19" rx="3"/><path d="M10.5 5h3M10.5 19.2h3"/><path d="M12 16.6c-3-2.5-3.9-4.3-3.9-5.8a3.9 3.9 0 0 1 7.8 0c0 1.5-.9 3.3-3.9 5.8Z"/><circle cx="12" cy="10.8" r="1.3"/></symbol>
+    <symbol id="i-satellite" viewBox="0 0 24 24"><path d="m8 16 8-8M2 9l5-5 5 5-5 5-5-5Zm10 6 5-5 5 5-5 5-5-5ZM8 16l-2 6m10-14 6-2"/></symbol>
+  </svg>
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Rotavia, voltar ao início">
+        <img class="brand-logo" src="assets/rotavia-logo.png" width="1500" height="420" alt="Rotavia — Rastreamento Veicular" decoding="async" fetchpriority="high">
+      </a>
+      <nav class="desktop-nav" aria-label="Menu principal"><a href="#como-funciona">Como funciona</a><a href="#sobre">Quem somos</a><a href="#beneficios">Benefícios</a><a href="#aplicativo">Tecnologia</a><a href="#localizacao">Localização</a><a href="#contato">Contato</a></nav>
+      <div class="header-actions"><a class="btn btn-outline btn-sm" href="#contato">Solicitar orçamento <svg class="icon"><use href="#i-arrow"/></svg></a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav"><svg class="icon"><use href="#i-menu"/></svg></button></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu para celular"><a href="#como-funciona">Como funciona</a><a href="#sobre">Quem somos</a><a href="#beneficios">Benefícios</a><a href="#aplicativo">Tecnologia</a><a href="#planos">Soluções</a><a href="#localizacao">Localização</a><a href="#contato">Solicitar orçamento</a></nav>
+  </header>
+
+  <main id="inicio">
+    <!-- O vídeo é o ORIGINAL fornecido; a reprodução é controlada pela posição de rolagem. -->
+    <section class="hero-scroll" id="hero" aria-label="Apresentação do rastreamento veicular">
+      <div class="hero-stage">
+        <div class="video-loader" id="videoLoader" aria-hidden="true"><div class="loader-orbit"></div></div>
+        <video class="hero-video" id="heroVideo" muted playsinline preload="auto" poster="assets/poster.jpg" disablepictureinpicture aria-hidden="true"><source src="assets/hero-scrub.mp4" type="video/mp4"></video>
+        <div class="hero-copy">
+          <div class="story-step is-active" data-from="0" data-to=".25">
+            <div class="story-kicker">RASTREAMENTO INTELIGENTE</div>
+            <h1>Seu caminho.<br><span class="accent">Nossa tecnologia.</span></h1>
+            <p>Mais do que saber onde seu veículo está. Tenha controle, informação e tranquilidade em cada trajeto.</p>
+            <div class="hero-buttons"><a class="btn btn-primary" href="#contato">Quero proteger meu veículo <svg class="icon"><use href="#i-arrow"/></svg></a><a class="btn btn-outline" href="#como-funciona">Como funciona</a></div>
+          </div>
+          <div class="story-step" data-from=".25" data-to=".50">
+            <div class="story-kicker">MONITORAMENTO EM TEMPO REAL</div>
+            <h2>Seu veículo.<br><span class="accent">Sempre no radar.</span></h2>
+            <p>Acompanhe a localização e os trajetos em um só lugar. Informação clara para você tomar decisões com confiança.</p>
+            <div class="hero-buttons"><a class="btn btn-outline" href="#beneficios">Conhecer os benefícios <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <div class="story-step" data-from=".50" data-to=".75">
+            <div class="story-kicker">SEGURANÇA EM MOVIMENTO</div>
+            <h2>Mais proteção.<br><span class="accent">Menos incerteza.</span></h2>
+            <p>Recursos de alerta e monitoramento ajudam você a acompanhar o que realmente importa, mesmo à distância.</p>
+            <div class="hero-buttons"><a class="btn btn-outline" href="#planos">Ver nossas soluções <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <div class="story-step" data-from=".75" data-to="1.01">
+            <div class="story-kicker">O CONTROLE NAS SUAS MÃOS</div>
+            <h2>O seu mundo.<br><span class="accent">Na palma da mão.</span></h2>
+            <p>Visualize a posição do veículo no mapa e acesse informações importantes com praticidade, de onde estiver.</p>
+            <div class="hero-buttons"><a class="btn btn-primary" href="#contato">Solicitar um orçamento <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          </div>
+        </div>
+        <div class="hero-bottom"><div class="scroll-prompt"><span class="scroll-mouse"></span><span>Role para explorar</span></div><div class="story-progress"><strong id="storyNumber">01</strong><span class="track"><span id="storyBar"></span></span><span>04</span></div></div>
+        <div class="hero-edge"></div>
+      </div>
+    </section>
+
+    <div class="trust-strip"><div class="container trust-inner"><div class="trust-item"><svg class="icon"><use href="#i-pin"/></svg><div><strong>Localização em tempo real</strong><span>Acompanhe pelo mapa</span></div></div><div class="trust-item"><svg class="icon"><use href="#i-shield"/></svg><div><strong>Mais controle e proteção</strong><span>Recursos de segurança</span></div></div><div class="trust-item"><svg class="icon"><use href="#i-app"/></svg><div><strong>Praticidade na rotina</strong><span>Informações na tela</span></div></div></div></div>
+
+    <section class="section how section-dots" id="como-funciona"><div class="container"><div class="section-title centered reveal"><span class="eyebrow">SIMPLES DO INÍCIO AO FIM</span><h2 class="headline">Como funciona o <span class="accent">rastreamento?</span></h2><p class="section-lead">Tecnologia inteligente para transformar dados do seu veículo em mais controle e tranquilidade no dia a dia.</p></div>
+      <div class="how-grid">
+        <article class="how-card reveal"><span class="number">01</span><div class="icon-box"><svg class="icon"><use href="#i-install-tracker"/></svg></div><h3>Instalação do equipamento</h3><p>Um rastreador é instalado no veículo para iniciar o envio de informações de localização.</p></article>
+        <article class="how-card reveal"><span class="number">02</span><div class="icon-box"><svg class="icon"><use href="#i-connect-platform"/></svg></div><h3>Conecte-se ao sistema</h3><p>Acesse a plataforma para visualizar a posição e os dados disponíveis do seu veículo.</p></article>
+        <article class="how-card reveal"><span class="number">03</span><div class="icon-box"><svg class="icon"><use href="#i-bell"/></svg></div><h3>Receba alertas importantes</h3><p>Configure notificações de eventos e movimentações conforme os recursos do plano.</p></article>
+        <article class="how-card reveal"><span class="number">04</span><div class="icon-box"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Mais segurança na rotina</h3><p>Ganhe visibilidade sobre seus trajetos e ferramentas para agir com mais agilidade.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <!-- Vídeo cinematográfico preservado sem ícones sobrepostos. A navegação dos recursos fica abaixo. -->
+          <div class="tracking-showcase" id="trackingShowcase" aria-label="Experiência cinematográfica com recursos de rastreamento veicular">
+            <div class="tracking-scene" id="trackingScene">
+              <video class="tracking-video" id="trackingVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="assets/cena-flow-poster.jpg" disablepictureinpicture aria-label="Cena cinematográfica de carro preto com tecnologia de rastreamento em avenida noturna">
+                <source src="assets/cena-flow-loop.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+              </video>
+              <div class="tracking-vignette" aria-hidden="true"></div>
+              <div class="tracking-topline"><span class="tracking-cinema-tag"><span class="tracking-cinema-indicator"></span> SEGURANÇA EM MOVIMENTO</span></div>
+              <div class="tracking-scene-bottom">
+                <span class="tracking-film-title">Uma nova forma de<br><strong>acompanhar seu veículo.</strong></span>
+                <button class="tracking-motion-toggle" id="trackingMotionToggle" type="button" aria-label="Pausar vídeo" aria-pressed="false" title="Pausar ou reproduzir a cena"><span class="tracking-control-symbol" aria-hidden="true">Ⅱ</span><span class="sr-only tracking-control-text">Pausar</span></button>
+              </div>
+              <div class="tracking-playback-bar" aria-hidden="true"><span id="trackingPlaybackProgress"></span></div>
+            </div>
+            <div class="tracking-console">
+              <div class="tracking-console-head"><span>EXPLORE OS RECURSOS</span><span class="tracking-index" id="trackingIndex">01 — 05</span></div>
+              <div class="tracking-tabs" role="tablist" aria-label="Conheça os recursos do rastreamento">
+                <button type="button" class="tracking-tab is-selected" role="tab" aria-selected="true" tabindex="0" data-feature="gps" id="tracking-tab-gps" aria-controls="trackingDetail"><span class="tracking-tab-number">01</span><span>Localização</span></button>
+                <button type="button" class="tracking-tab" role="tab" aria-selected="false" tabindex="-1" data-feature="alertas" id="tracking-tab-alertas" aria-controls="trackingDetail"><span class="tracking-tab-number">02</span><span>Alertas</span></button>
+                <button type="button" class="tracking-tab" role="tab" aria-selected="false" tabindex="-1" data-feature="rotas" id="tracking-tab-rotas" aria-controls="trackingDetail"><span class="tracking-tab-number">03</span><span>Rotas</span></button>
+                <button type="button" class="tracking-tab" role="tab" aria-selected="false" tabindex="-1" data-feature="bloqueio" id="tracking-tab-bloqueio" aria-controls="trackingDetail"><span class="tracking-tab-number">04</span><span>Bloqueio</span></button>
+                <button type="button" class="tracking-tab" role="tab" aria-selected="false" tabindex="-1" data-feature="cerca" id="tracking-tab-cerca" aria-controls="trackingDetail"><span class="tracking-tab-number">05</span><span>Cerca virtual</span></button>
+              </div>
+              <div class="tracking-detail" id="trackingDetail" role="tabpanel" aria-labelledby="tracking-tab-gps" aria-live="polite" aria-atomic="true">
+                <div class="tracking-detail-symbol"><svg class="icon"><use href="#i-pin" id="trackingInfoIconUse"/></svg></div>
+                <div class="tracking-detail-text"><h3 id="trackingInfoTitle">Saiba onde seu veículo está</h3><p id="trackingInfoDesc">Consulte a localização e acompanhe deslocamentos pelo sistema.</p></div>
+                <a class="tracking-detail-link" href="#beneficios" aria-label="Ver os benefícios do rastreamento"><svg class="icon"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </div>
+          <p class="tracking-disclaimer">Apresentação ilustrativa. A disponibilidade das funções depende do plano e do equipamento.</p>
+        </div>
+        <div class="about-text reveal">
+          <span class="eyebrow">QUEM SOMOS</span>
+          <h2 class="headline">Tecnologia para quem <span class="accent">valoriza a tranquilidade.</span></h2>
+          <p class="section-lead">Na <strong data-brand>Rotavia</strong>, acreditamos que estar bem informado faz toda a diferença quando o assunto é segurança veicular.</p>
+          <p class="section-lead">Unimos tecnologia de rastreamento e uma experiência simples para que você se sinta mais próximo do seu veículo — em cada trajeto.</p>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"/></svg>Acompanhamento claro e acessível.</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Soluções para veículos particulares e frotas.</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Praticidade para uma rotina mais tranquila.</li>
+          </ul>
+          <a class="text-link" href="#contato">Fale com nossa equipe <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section benefits" id="beneficios"><div class="container benefit-layout"><div class="benefit-side reveal"><span class="eyebrow">MAIS QUE UM PONTO NO MAPA</span><h2 class="headline">Tudo o que importa, <span class="accent">mais perto de você.</span></h2><p class="section-lead">Recursos desenvolvidos para acompanhar deslocamentos, consultar informações e ampliar sua visão sobre o veículo.</p><a class="btn btn-outline" href="#contato">Quero saber mais <svg class="icon"><use href="#i-arrow"/></svg></a></div><div class="benefit-grid"><article class="benefit reveal"><svg class="icon"><use href="#i-pin"/></svg><h3>Localização em tempo real</h3><p>Consulte a posição do veículo no mapa, com praticidade.</p></article><article class="benefit reveal"><svg class="icon"><use href="#i-route"/></svg><h3>Histórico de trajetos</h3><p>Revise deslocamentos e rotas de acordo com os dados disponíveis.</p></article><article class="benefit reveal"><svg class="icon"><use href="#i-bell"/></svg><h3>Alertas inteligentes</h3><p>Informações de eventos importantes para o seu acompanhamento.</p></article><article class="benefit reveal"><svg class="icon"><use href="#i-lock"/></svg><h3>Recursos de segurança</h3><p>Consulte opções de bloqueio e recuperação conforme o serviço.</p></article><article class="benefit reveal"><svg class="icon"><use href="#i-fleet"/></svg><h3>Gestão de frotas</h3><p>Organização e visibilidade para quem administra mais veículos.</p></article><article class="benefit reveal"><svg class="icon"><use href="#i-headset"/></svg><h3>Atendimento próximo</h3><p>Converse com nossa equipe para encontrar a solução ideal.</p></article></div></div></section>
+
+    <!-- DEMONSTRAÇÃO LEVE: 6 capturas reais do vídeo, alternadas pela rolagem (sem seek de vídeo) -->
+    <section class="platform-scroll" id="aplicativo" aria-label="Veja os seis menus da plataforma Rotavia enquanto rola a página">
+      <div class="platform-scroll-stage">
+        <div class="container platform-scroll-layout">
+          <div class="platform-story-copy">
+            <div class="platform-kicker-row">
+              <span class="eyebrow">TECNOLOGIA NA PRÁTICA</span>
+              <span class="platform-count" id="platformCount" aria-label="Menu 1 de 6">01 <small>/ 06</small></span>
+            </div>
+            <div class="platform-dynamic-copy" id="platformDynamicCopy" aria-live="polite" aria-atomic="true">
+              <h2 class="platform-story-heading" id="platformHeading"><span id="platformHeadingOne">Seu veículo.</span><span id="platformHeadingTwo" class="accent">Sempre à vista.</span></h2>
+              <p class="platform-story-lead" id="platformDescription">Acompanhe o que importa em uma interface simples, clara e conectada.</p>
+              <div class="platform-highlights" aria-label="Principais recursos">
+                <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span id="platformPointOne">Localização no mapa</span></span>
+                <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span id="platformPointTwo">Status em tempo real</span></span>
+              </div>
+            </div>
+            <div class="platform-story-actions">
+              <a class="btn btn-primary" href="#contato">Conhecer a solução <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <span class="platform-scroll-tip">Role para explorar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+            <div class="platform-timeline" role="progressbar" aria-label="Progresso da demonstração" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1" id="platformTimeline"><span id="platformProgress"></span></div>
+          </div>
+          <div class="platform-monitor-column">
+            <div class="platform-monitor-wrap" aria-label="Demonstração do sistema Rotavia em um computador">
+              <div class="platform-monitor-stage" id="platformMonitorStage">
+                <img class="platform-monitor-image is-active" id="platformImageA" src="assets/menus/menu-01.webp" width="1200" height="900" alt="Menu Painel do rastreamento Rotavia exibido em um computador" decoding="async" fetchpriority="low">
+                <img class="platform-monitor-image" id="platformImageB" src="assets/menus/menu-01.webp" width="1200" height="900" alt="" aria-hidden="true" decoding="async">
+              </div>
+            </div>
+            <nav class="platform-chapters" id="platformChapters" aria-label="Selecionar menu da demonstração">
+              <button type="button" class="platform-chapter is-active" data-menu="0" aria-current="step">Painel</button>
+              <button type="button" class="platform-chapter" data-menu="1">Veículos</button>
+              <button type="button" class="platform-chapter" data-menu="2">Rotas</button>
+              <button type="button" class="platform-chapter" data-menu="3">Histórico</button>
+              <button type="button" class="platform-chapter" data-menu="4">Alertas</button>
+              <button type="button" class="platform-chapter" data-menu="5">Relatórios</button>
+            </nav>
+            <p class="platform-footnote"><span class="platform-green-dot"></span> Demonstração ilustrativa da plataforma · navegue pelo scroll ou pelos menus</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plans" id="planos"><div class="container"><div class="section-title centered reveal"><span class="eyebrow">ENCONTRE A SUA SOLUÇÃO</span><h2 class="headline">A proteção certa para <span class="accent">cada caminho.</span></h2><p class="section-lead">Seja para seu carro, para uma proteção mais completa ou para o acompanhamento de uma frota, converse com a equipe e encontre uma opção para a sua necessidade.</p></div><div class="plan-grid"><article class="plan reveal"><span class="plan-tag">INDIVIDUAL</span><h3>Essencial</h3><p>Para quem deseja acompanhar o veículo com simplicidade.</p><div class="plan-divider"></div><ul><li><svg class="icon"><use href="#i-check"/></svg>Acompanhamento de localização</li><li><svg class="icon"><use href="#i-check"/></svg>Acesso ao sistema</li><li><svg class="icon"><use href="#i-check"/></svg>Consulta de informações</li><li><svg class="icon"><use href="#i-check"/></svg>Orientação sobre instalação</li></ul><a class="btn btn-dark plan-cta" href="#contato" data-plan="Essencial">Pedir uma proposta <svg class="icon"><use href="#i-arrow"/></svg></a></article><article class="plan featured reveal"><span class="plan-tag">MAIS RECURSOS</span><h3>Proteção</h3><p>Para quem busca uma experiência com mais funcionalidades.</p><div class="plan-divider"></div><ul><li><svg class="icon"><use href="#i-check"/></svg>Recursos do plano Essencial</li><li><svg class="icon"><use href="#i-check"/></svg>Opções de alertas</li><li><svg class="icon"><use href="#i-check"/></svg>Consulta de histórico</li><li><svg class="icon"><use href="#i-check"/></svg>Recursos adicionais sob consulta</li></ul><a class="btn btn-primary plan-cta" href="#contato" data-plan="Proteção">Solicitar orçamento <svg class="icon"><use href="#i-arrow"/></svg></a></article><article class="plan reveal"><span class="plan-tag">PARA EMPRESAS</span><h3>Frotas</h3><p>Para quem deseja maior visibilidade sobre vários veículos.</p><div class="plan-divider"></div><ul><li><svg class="icon"><use href="#i-check"/></svg>Visão de múltiplos veículos</li><li><svg class="icon"><use href="#i-check"/></svg>Organização de rotas e dados</li><li><svg class="icon"><use href="#i-check"/></svg>Opções de gestão</li><li><svg class="icon"><use href="#i-check"/></svg>Proposta personalizada</li></ul><a class="btn btn-dark plan-cta" href="#contato" data-plan="Frotas">Falar sobre minha frota <svg class="icon"><use href="#i-arrow"/></svg></a></article></div></div></section>
+
+    <div class="container banner-wrap"><div class="cta-banner reveal"><div><span class="eyebrow">ESTEJA UM PASSO À FRENTE</span><h2>Mais controle começa com <span class="accent">uma conversa.</span></h2><p>Conte o que você precisa e descubra como o rastreamento pode fazer parte da sua rotina.</p></div><a class="btn btn-primary" href="#contato">Solicitar orçamento <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+
+    <section class="section location" id="localizacao"><div class="container location-grid"><div class="location-info reveal"><span class="eyebrow">ONDE NOS ENCONTRAR</span><h2 class="headline">Nossa <span class="accent">localização.</span></h2><p class="section-lead">Estamos prontos para conversar sobre a solução de rastreamento ideal para você.</p><div class="contact-chip"><svg class="icon"><use href="#i-pin"/></svg><div><strong>Localização no Google Maps</strong><span id="addressDisplay">Mapa de demonstração — Cascavel, PR</span></div></div><a class="text-link" id="openMaps" href="https://www.google.com/maps/search/?api=1&query=Cascavel%2C%20Paran%C3%A1%2C%20Brasil" target="_blank" rel="noopener noreferrer">Abrir no Google Maps <svg class="icon"><use href="#i-arrow"/></svg></a></div><div class="reveal"><div class="map-frame"><iframe id="mapIframe" title="Mapa ilustrativo de localização" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Cascavel%2C%20Paran%C3%A1%2C%20Brasil&output=embed"></iframe></div><p class="location-caption" id="mapCaption">Localização demonstrativa. Informe o endereço da sua empresa no arquivo assets/config.js antes de publicar.</p></div></div></section>
+
+    <section class="section contact" id="contato"><div class="container contact-grid"><div class="contact-copy reveal"><span class="eyebrow">VAMOS CONVERSAR?</span><h2 class="headline">Sua tranquilidade <span class="accent">começa aqui.</span></h2><p class="section-lead">Quer rastrear seu veículo ou saber qual solução combina com você? Envie sua mensagem e dê o primeiro passo.</p><div class="contact-list"><div class="contact-row"><span class="contact-icon"><svg class="icon"><use href="#i-phone"/></svg></span><div><span>Telefone / WhatsApp</span><strong id="phoneDisplay">Configure o contato da empresa</strong></div></div><div class="contact-row"><span class="contact-icon"><svg class="icon"><use href="#i-mail"/></svg></span><div><span>E-mail</span><strong id="emailDisplay">Informe o e-mail em config.js</strong></div></div><div class="contact-row"><span class="contact-icon"><svg class="icon"><use href="#i-pin"/></svg></span><div><span>Endereço</span><strong id="contactAddress">Informe o endereço em config.js</strong></div></div></div></div><div class="form-card reveal"><h3>Solicite seu orçamento</h3><p>Preencha os campos e envie sua solicitação pelo WhatsApp.</p><form id="contactForm"><div class="form-grid"><div class="field"><label for="name">Seu nome *</label><input id="name" name="nome" type="text" placeholder="Como podemos chamar você?" autocomplete="name" required maxlength="100"></div><div class="field"><label for="phone">Seu WhatsApp *</label><input id="phone" name="telefone" type="tel" placeholder="(45) 99999-9999" autocomplete="tel" required maxlength="25" inputmode="tel"></div><div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" maxlength="150"></div><div class="field"><label for="interest">Tenho interesse em</label><select id="interest" name="interesse"><option value="Rastreamento veicular">Rastreamento veicular</option><option value="Essencial">Solução Essencial</option><option value="Proteção">Solução Proteção</option><option value="Frotas">Gestão de frotas</option><option value="Outros">Outras informações</option></select></div><div class="field wide"><label for="message">Mensagem *</label><textarea id="message" name="mensagem" placeholder="Conte um pouco sobre o que você precisa..." required maxlength="2000"></textarea></div></div><button class="btn btn-primary form-submit" type="submit">Enviar solicitação <svg class="icon"><use href="#i-send"/></svg></button><p class="form-note">Ao enviar, sua mensagem será preparada para o WhatsApp. Não armazenamos os dados neste site estático.</p><div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div></form></div></div></section>
+
+    <section class="section faq" id="duvidas"><div class="container faq-layout"><div class="reveal"><span class="eyebrow">PRECISA DE MAIS DETALHES?</span><h2 class="headline">Dúvidas <span class="accent">frequentes.</span></h2><p class="section-lead">Entenda os pontos mais importantes antes de escolher uma solução.</p></div><div class="faq-items reveal"><details><summary>Como o rastreamento veicular funciona? <svg class="icon"><use href="#i-plus"/></svg></summary><p>Um dispositivo instalado no veículo transmite informações de localização para uma plataforma de acompanhamento, conforme a conectividade e os recursos do serviço contratado.</p></details><details><summary>Posso acompanhar pelo celular? <svg class="icon"><use href="#i-plus"/></svg></summary><p>Os serviços com plataforma compatível permitem consultar informações pelo celular. Nossa equipe pode apresentar os recursos disponíveis para cada solução.</p></details><details><summary>O rastreamento funciona em qualquer local? <svg class="icon"><use href="#i-plus"/></svg></summary><p>A atualização das informações depende da tecnologia do equipamento e das condições de cobertura e conectividade. Consulte as condições de atendimento e funcionamento antes da contratação.</p></details><details><summary>Existem opções para empresas com vários veículos? <svg class="icon"><use href="#i-plus"/></svg></summary><p>Sim, a proposta para frotas pode ser dimensionada conforme a quantidade de veículos e os recursos de gestão necessários.</p></details><details><summary>Como solicitar um orçamento? <svg class="icon"><use href="#i-plus"/></svg></summary><p>Preencha o formulário desta página informando seu interesse. A mensagem será preparada para envio pelo WhatsApp configurado pela empresa.</p></details></div></div></section>
+  </main>
+
+  <footer class="footer">
+<div class="container">
+<div class="footer-main">
+<div class="footer-brand">
+<a aria-label="Voltar ao início" class="brand" href="#inicio"><img alt="Rotavia — Rastreamento Veicular" class="brand-logo brand-logo-footer" decoding="async" height="420" loading="lazy" src="assets/rotavia-logo.png" width="1500"/></a>
+<p>Seu veículo em movimento. Sua tranquilidade em primeiro lugar.</p>
+</div>
+<div class="footer-contact-section">
+<h3 class="footer-heading">Contato</h3>
+<div class="footer-contact">
+<a aria-label="Conversar pelo WhatsApp: (45) 98406-9119" class="footer-contact-item" href="https://wa.me/5545984069119?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20rastreamento%20veicular." rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="footer-contact-icon"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.77 11.77 0 0 0 12.04 0C5.5 0 .17 5.32.16 11.87c0 2.09.54 4.13 1.58 5.93L.06 24l6.35-1.66a11.94 11.94 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.88-11.87a11.8 11.8 0 0 0-3.4-8.42ZM12.04 21.77a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98.99-3.64-.24-.38a9.86 9.86 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 7 2.9 9.84 9.84 0 0 1 2.9 7.01c-.01 5.46-4.45 9.9-9.91 9.9Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.46-.15-.66.15-.2.3-.77.97-.94 1.17-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.66-1.59-.9-2.18-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.49 1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.1 4.52.71.31 1.27.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" fill="currentColor"></path></svg></span>
+<span class="footer-contact-details"><span class="footer-contact-label">WhatsApp</span><strong>(45) 98406-9119</strong></span>
+</a>
+<a aria-label="Enviar e-mail para contato@neoartepub.com.br" class="footer-contact-item" href="mailto:contato@neoartepub.com.br">
+<span aria-hidden="true" class="footer-contact-icon"><svg class="icon"><use href="#i-mail"></use></svg></span>
+<span class="footer-contact-details"><span class="footer-contact-label">E-mail</span><strong>contato@neoartepub.com.br</strong></span>
+</a>
+</div>
+</div>
+<nav aria-label="Navegação do rodapé" class="footer-links">
+<div class="group"><strong>Navegação</strong><a href="#como-funciona">Como funciona</a><a href="#sobre">Quem somos</a><a href="#beneficios">Benefícios</a><a href="#aplicativo">Tecnologia</a></div>
+<div class="group"><strong>Atendimento</strong><a href="#planos">Nossas soluções</a><a href="#localizacao">Localização</a><a href="#contato">Solicitar orçamento</a><a href="#duvidas">Dúvidas frequentes</a></div>
+</nav>
+<div class="footer-payments">
+<div class="footer-payments-copy"><h3 class="footer-heading">Aceitamos cartões</h3></div>
+<img alt="Bandeiras de cartões Visa, Mastercard, Maestro, Elo e Alelo" class="footer-payment-image" decoding="async" height="210" loading="lazy" src="assets/payments/bandeiras-cartoes.png" width="1300"/>
+<div class="footer-social" aria-label="Mídias sociais">
+<a class="footer-social-link" href="#" aria-label="Facebook" title="Facebook"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13.5 22v-8h2.8l.4-3h-3.2V9.1c0-.9.3-1.5 1.6-1.5H17V4.9c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2V11H7.8v3h2.6v8h3.1Z" fill="currentColor"/></svg></a>
+<a class="footer-social-link" href="#" aria-label="Instagram" title="Instagram"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" ry="5" stroke="currentColor" fill="none" stroke-width="1.9"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" fill="none" stroke-width="1.9"/><circle cx="17.4" cy="6.8" r="1.15" fill="currentColor"/></svg></a>
+<a class="footer-social-link" href="https://wa.me/5545984069119?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20rastreamento%20veicular." aria-label="WhatsApp" title="WhatsApp" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.52 3.48A11.77 11.77 0 0 0 12.04 0C5.5 0 .17 5.32.16 11.87c0 2.09.54 4.13 1.58 5.93L.06 24l6.35-1.66a11.94 11.94 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.88-11.87a11.8 11.8 0 0 0-3.4-8.42ZM12.04 21.77a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98.99-3.64-.24-.38a9.86 9.86 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 7 2.9 9.84 9.84 0 0 1 2.9 7.01c-.01 5.46-4.45 9.9-9.91 9.9Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.46-.15-.66.15-.2.3-.77.97-.94 1.17-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.66-1.59-.9-2.18-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.49 1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.1 4.52.71.31 1.27.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" fill="currentColor"/></svg></a>
+<a class="footer-social-link" href="#" aria-label="TikTok" title="TikTok"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.7 3c.5 1.7 1.6 3 3.5 3.6v2.8c-1.5 0-2.8-.4-4-1.2v6c0 3.5-2.5 5.8-5.6 5.8-2.8 0-5-2.1-5-4.8 0-2.9 2.3-5 5.4-5.2v2.9c-1.3.1-2.4.9-2.4 2.2 0 1.1.9 2 2.1 2 1.4 0 2.4-.9 2.4-2.9V3h3.6Z" fill="currentColor"/></svg></a>
+</div>
+</div></div>
+
+<div class="footer-bottom"><span>© <span id="copyrightYear"></span> <span data-brand="">Rotavia</span>. Todos os direitos reservados.</span><span><a class="footer-credit" href="https://www.neoartepub.com.br/" rel="noopener noreferrer" target="_blank" title="Visitar o site da Agência Neo Arte">Criado por Agência Neo Arte</a></span></div>
+</div>
+</footer>
+
+  <a class="floating-wa js-wa" href="#contato" data-wa-message="Olá! Gostaria de saber mais sobre rastreamento veicular." aria-label="Falar pelo WhatsApp ou solicitar contato" title="Falar no WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.77 11.77 0 0 0 12.04 0C5.5 0 .17 5.32.16 11.87c0 2.09.54 4.13 1.58 5.93L.06 24l6.35-1.66a11.94 11.94 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.88-11.87a11.8 11.8 0 0 0-3.4-8.42ZM12.04 21.77a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98.99-3.64-.24-.38a9.86 9.86 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 7 2.9 9.84 9.84 0 0 1 2.9 7.01c-.01 5.46-4.45 9.9-9.91 9.9Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.46-.15-.66.15-.2.3-.77.97-.94 1.17-.17.2-.34.22-.63.08-.3-.15-1.25-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.66-1.59-.9-2.18-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.49 1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.1 4.52.71.31 1.27.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg></a>
+  <script src="assets/platform-scroll.js" defer></script>
+<script src="assets/transitions.js" defer></script>
+</body>
+</html>

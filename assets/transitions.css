@@ -1,0 +1,133 @@
+/* Rotavia — efeitos de transição (sutis)
+   1) Entrada da página  2) Transição entre seções  3) Entrada escalonada dos elementos
+   Arquivo independente: para remover, apague este CSS, transitions.js e o bloco #pageIntro do index.html. */
+
+/* ========== 1) ENTRADA DA PÁGINA ========== */
+.page-intro{display:none}
+.js .page-intro{
+  display:grid;place-items:center;position:fixed;inset:0;z-index:9999;
+  background:radial-gradient(ellipse 50% 45% at 50% 50%,rgba(13,72,87,.30),transparent 72%),#03070b;
+  clip-path:inset(0 0 0 0);
+  transition:clip-path .95s cubic-bezier(.77,0,.18,1);
+  /* Segurança: se o JavaScript falhar, a cortina some sozinha. */
+  animation:introFailsafe .01s linear 4.5s forwards;
+}
+.page-intro.is-done{clip-path:inset(0 0 100% 0);pointer-events:none}
+.page-intro.is-gone{visibility:hidden}
+.page-intro-inner{display:flex;flex-direction:column;align-items:center;gap:22px;transition:opacity .4s ease,transform .9s cubic-bezier(.77,0,.18,1)}
+.page-intro.is-done .page-intro-inner{opacity:0;transform:translateY(-16px)}
+.page-intro-logo{width:min(240px,62vw);height:auto;opacity:0;transform:translateY(10px);animation:introLogo .85s .1s cubic-bezier(.2,.7,.2,1) forwards;filter:drop-shadow(0 0 14px rgba(0,203,240,.10))}
+.page-intro-line{position:relative;width:min(150px,40vw);height:1px;overflow:hidden;background:rgba(141,187,209,.16)}
+.page-intro-line::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#31d8f5,transparent);transform:translateX(-100%);animation:introLine 1.15s ease-in-out infinite}
+@keyframes introLogo{to{opacity:1;transform:none}}
+@keyframes introLine{to{transform:translateX(100%)}}
+@keyframes introFailsafe{to{visibility:hidden;pointer-events:none}}
+
+/* ========== 2) TRANSIÇÃO ENTRE SEÇÕES ========== */
+.sx-line{position:absolute;top:0;left:0;right:0;height:1px;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(49,216,245,.75) 50%,transparent);
+  box-shadow:0 0 18px rgba(49,216,245,.22);
+  transform:scaleX(0);opacity:0;transform-origin:center;
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity 1.4s ease}
+.sx-in>.sx-line{transform:scaleX(1);opacity:.6}
+/* O conteúdo só começa escondido quando o JS confirma que está ativo (.sx-ready). */
+.js.sx-ready .section>.container{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js.sx-ready .section.sx-in>.container{opacity:1;transform:none}
+
+/* ========== 3) ELEMENTOS EM SEQUÊNCIA ========== */
+.js .reveal{
+  opacity:0;transform:translateY(24px) scale(.985);
+  transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--rd,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--rd,0s),border-color .23s,box-shadow .23s;
+}
+.js .reveal.visible{opacity:1;transform:none}
+/* Após a entrada, o atraso é removido (JS) para não atrasar o hover dos cards. */
+
+@media(prefers-reduced-motion:reduce){
+  .js .page-intro{display:none}
+  .sx-line{display:none}
+  .js.sx-ready .section>.container,.js .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* ========== 4) CORPO DO SITE ========== */
+
+/* 4a) Blocos de duas colunas entram pelos lados (só em telas largas; no celular sobem) */
+@media(min-width:981px){
+  .js .about-media.reveal:not(.visible),
+  .js .benefit-side.reveal:not(.visible),
+  .js .location-info.reveal:not(.visible),
+  .js .contact-copy.reveal:not(.visible),
+  .js .faq-layout>.reveal:first-child:not(.visible){transform:translateX(-46px) scale(.985)}
+  .js .about-text.reveal:not(.visible),
+  .js .location-grid>.reveal:last-child:not(.visible),
+  .js .form-card.reveal:not(.visible),
+  .js .faq-items.reveal:not(.visible){transform:translateX(46px) scale(.985)}
+}
+
+/* 4b) Títulos: as palavras sobem de uma "máscara" em sequência */
+.hl-w{display:inline-block;vertical-align:top;overflow:hidden;padding:.12em 0 .16em;margin:-.12em 0 -.16em}
+.hl-w>span{display:inline-block}
+.js.hl-ready .hl-w>span{transition:transform .95s cubic-bezier(.2,.7,.2,1) calc(.15s + var(--i,0)*55ms)}
+.js.hl-ready .reveal:not(.visible) .hl-w>span{transform:translateY(112%)}
+
+/* 4c) Barra de progresso de leitura no topo */
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:110;pointer-events:none}
+.scroll-progress span{display:block;height:100%;transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,#04a9ef,#31d8f5);box-shadow:0 0 10px rgba(49,216,245,.5);will-change:transform}
+
+/* 4d) Dúvidas frequentes: abrir/fechar com animação (o ícone gira junto) */
+.faq details.is-closing summary .icon{transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  .scroll-progress{display:none}
+  .js.hl-ready .hl-w>span{transition:none;transform:none!important}
+}
+
+/* ========== 5) DIVISÓRIAS COM FORMAS + PARALLAX ========== */
+.section>.container{position:relative;z-index:1}
+
+/* 5a) Camada de fundo de cada seção (brilho, anéis e número grande) */
+.px-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.px-orb{position:absolute;width:640px;height:640px;border-radius:50%;will-change:transform;
+  background:radial-gradient(circle,rgba(49,216,245,.12),rgba(4,169,239,.04) 45%,transparent 68%)}
+.px-ring{position:absolute;width:280px;height:280px;border-radius:50%;border:1px solid rgba(49,216,245,.16);will-change:transform}
+.px-ring::after{content:"";position:absolute;inset:26px;border-radius:50%;border:1px dashed rgba(49,216,245,.12)}
+.px-num{position:absolute;font:800 clamp(170px,24vw,360px)/1 var(--head);letter-spacing:-.06em;color:transparent;
+  -webkit-text-stroke:1px rgba(49,216,245,.10);user-select:none;will-change:transform}
+.px-r .px-orb{right:-220px;top:6%}  .px-r .px-ring{left:4%;bottom:10%}  .px-r .px-num{right:2%;top:5%}
+.px-l .px-orb{left:-220px;top:6%}   .px-l .px-ring{right:4%;bottom:10%} .px-l .px-num{left:2%;top:5%}
+
+/* 5b) Divisória entre tópicos: o contorno da seção anterior se curva/inclina conforme a rolagem */
+.sx-div{position:absolute;left:0;right:0;height:112px;z-index:2;pointer-events:none}
+.sx-div-top{top:-1px}
+.sx-div-bottom{bottom:-1px}
+.sx-div svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
+.sx-stroke{filter:drop-shadow(0 0 7px rgba(49,216,245,.55));clip-path:inset(-26px 100% -26px 0);
+  transition:clip-path 1.6s cubic-bezier(.2,.7,.2,1)}
+.sx-div.d-in .sx-stroke{clip-path:inset(-26px 0 -26px 0)}
+.sx-stroke path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.sx-stroke .s1{stroke:rgba(49,216,245,.85);stroke-width:1.4px}
+.sx-stroke .s2{stroke:rgba(49,216,245,.28);stroke-width:1px}
+
+/* formas flutuantes sobre a emenda (parallax em velocidades diferentes) */
+.sx-shape{position:absolute;display:block;opacity:0;transition:opacity 1s ease .35s;will-change:transform}
+.sx-div.d-in .sx-shape{opacity:1}
+.sx-ring2{width:54px;height:54px;border-radius:50%;border:1px solid rgba(49,216,245,.55);box-shadow:0 0 18px rgba(49,216,245,.18)}
+.sx-dia{width:30px;height:30px;border:1px solid rgba(49,216,245,.5)}
+.sx-plus{width:26px;height:26px}
+.sx-plus::before,.sx-plus::after{content:"";position:absolute;background:rgba(49,216,245,.6)}
+.sx-plus::before{left:0;right:0;top:50%;height:1px}
+.sx-plus::after{top:0;bottom:0;left:50%;width:1px}
+.sx-s1{left:9%;top:30%}  .sx-s2{left:53%;top:56%}  .sx-s3{left:88%;top:26%}
+.sx-div.flip .sx-s1{left:86%} .sx-div.flip .sx-s2{left:44%} .sx-div.flip .sx-s3{left:11%}
+
+@media(max-width:720px){
+  .sx-div{height:76px}
+  .px-orb{width:380px;height:380px}
+  .px-ring{width:170px;height:170px}
+  .px-num{font-size:150px}
+  .px-r .px-orb{right:-190px} .px-l .px-orb{left:-190px}
+  .sx-ring2{width:38px;height:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  .px-layer,.sx-div{display:none}
+}

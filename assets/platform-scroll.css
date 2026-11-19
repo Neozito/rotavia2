@@ -1,0 +1,48 @@
+/* Rotavia — seção de demonstração leve: seis imagens WebP, sem decodificação de vídeo por scroll */
+.platform-scroll{position:relative;height:375vh;background:#061017;border-block:1px solid rgba(72,196,224,.13)}
+.platform-scroll-stage{position:sticky;top:0;height:100svh;min-height:560px;display:flex;align-items:center;overflow:hidden;padding:90px 0 28px;background:#061017;isolation:isolate}
+.platform-scroll-stage::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 45% 55% at 76% 50%,rgba(13,72,87,.20),transparent 90%)}
+.platform-scroll-layout{width:min(calc(100% - 60px),1310px);max-width:1310px;display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.45fr);gap:clamp(18px,3.2vw,48px);align-items:center}
+.platform-story-copy{min-width:0;padding:0 0 0 6px}
+.platform-kicker-row{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.platform-kicker-row .eyebrow{font-size:.67rem;letter-spacing:.17em}
+.platform-count{font:800 .9rem/1 var(--head);color:var(--cyan);font-variant-numeric:tabular-nums;white-space:nowrap}
+.platform-count small{font-size:.67rem;color:#7192a0}
+.platform-dynamic-copy{transition:opacity .16s ease,transform .16s ease}
+.platform-dynamic-copy.is-changing{opacity:.65;transform:translateY(3px)}
+.platform-story-heading{font:800 clamp(2.1rem,3.35vw,3.6rem)/1.14 var(--head);letter-spacing:-.054em;margin:20px 0 17px}
+.platform-story-heading span{display:block}
+.platform-story-lead{max-width:37ch;color:#a1b5c1;font-size:clamp(.95rem,1.15vw,1.08rem);line-height:1.78;min-height:3.4em;margin:0}
+.platform-highlights{display:flex;flex-wrap:wrap;gap:9px 18px;margin:22px 0 0;color:#b7d2dc;font-size:.81rem;font-weight:600}
+.platform-highlights>span{display:inline-flex;align-items:center;gap:7px}
+.platform-highlights .icon{width:15px;height:15px;color:var(--cyan)}
+.platform-story-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:28px}
+.platform-story-actions .btn{min-height:47px;padding:0 20px;font-size:.82rem}
+.platform-scroll-tip{display:inline-flex;align-items:center;gap:7px;color:#80a7b7;font-size:.73rem}
+.platform-scroll-tip .icon{width:16px;height:16px;color:var(--cyan);transform:rotate(90deg)}
+.platform-timeline{height:2px;margin-top:28px;background:rgba(90,162,185,.18);border-radius:4px;overflow:hidden}
+.platform-timeline>span{display:block;width:16.6667%;height:100%;background:#31d8f5;transition:width .2s ease}
+.platform-monitor-column{min-width:0}
+.platform-monitor-wrap{width:100%;margin:0 auto;overflow:hidden;background:transparent}
+.platform-monitor-stage{width:100%;aspect-ratio:4 / 3;position:relative;isolation:isolate}
+.platform-monitor-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;z-index:1;user-select:none;pointer-events:none;transition:opacity .22s ease}
+.platform-monitor-image.is-active{opacity:1;z-index:2}
+.platform-chapters{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin-top:6px;border-top:1px solid rgba(77,173,194,.17);padding-top:9px}
+.platform-chapter{appearance:none;min-width:0;min-height:39px;padding:8px 3px;border:1px solid transparent;border-radius:7px;background:transparent;color:#92aab6;font:750 clamp(.65rem,.81vw,.81rem)/1.2 var(--head);transition:color .18s,background .18s,border-color .18s}
+.platform-chapter:hover{background:rgba(28,173,207,.06);color:#f5fdff}
+.platform-chapter.is-active{background:rgba(33,205,235,.12);color:#d6faff;border-color:rgba(50,217,239,.25)}
+.platform-footnote{display:flex;align-items:center;gap:9px;margin:10px 0 0;color:#7393a1;font-size:.66rem;font-weight:600;letter-spacing:.015em}
+.platform-green-dot{width:6px;height:6px;flex-shrink:0;border-radius:50%;background:#49dba9;box-shadow:0 0 0 4px rgba(76,226,177,.08)}
+@media(max-width:1100px){.platform-scroll-layout{width:calc(100% - 42px);gap:12px;grid-template-columns:minmax(0,.82fr) minmax(0,1.35fr)}.platform-story-heading{font-size:clamp(2rem,3.6vw,3rem)}.platform-highlights{gap:8px 10px}.platform-story-actions{gap:12px}}
+@media(max-width:800px){.platform-scroll{height:345svh}.platform-scroll-stage{min-height:0;height:100svh;padding:96px 0 12px;align-items:flex-start}.platform-scroll-layout{grid-template-columns:1fr;width:calc(100% - 30px);gap:7px;max-width:620px}.platform-story-copy{padding:0}.platform-kicker-row .eyebrow{font-size:.58rem;letter-spacing:.1em}.platform-count{font-size:.74rem}.platform-story-heading{font-size:clamp(1.8rem,5.7vw,2.65rem);margin:9px 0 5px}.platform-story-heading span{display:inline}.platform-story-heading span+span::before{content:' '}.platform-story-lead{min-height:0;max-width:68ch;font-size:.82rem;line-height:1.45}.platform-highlights{margin-top:9px;font-size:.70rem;gap:6px 14px}.platform-story-actions{margin-top:10px;gap:14px}.platform-story-actions .btn{min-height:36px;padding:0 13px;font-size:.72rem}.platform-scroll-tip{font-size:.64rem}.platform-timeline{margin-top:12px}.platform-monitor-column{min-height:0}.platform-monitor-stage{max-width:530px;margin:auto;max-height:38svh}.platform-chapters{margin-top:0;padding-top:5px;gap:1px}.platform-chapter{min-height:35px;font-size:.62rem;padding:5px 1px}.platform-footnote{font-size:.57rem;margin:5px 0 0}}
+@media(max-width:480px){.platform-scroll-stage{padding-top:69px}.platform-scroll-layout{gap:5px;width:calc(100% - 24px)}.platform-story-heading{font-size:clamp(1.55rem,6vw,1.93rem)}.platform-story-lead{font-size:.74rem}.platform-highlights{font-size:.62rem;margin-top:6px}.platform-story-actions{margin-top:8px}.platform-story-actions .btn{min-height:32px;font-size:.65rem}.platform-scroll-tip{font-size:.58rem}.platform-timeline{margin-top:8px}.platform-chapters{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;padding-top:5px}.platform-chapter{min-height:28px;font-size:.64rem}.platform-footnote{display:none}}
+@media(max-height:730px) and (min-width:801px){.platform-scroll-stage{padding-top:80px;padding-bottom:10px}.platform-story-heading{font-size:clamp(2rem,3.0vw,2.8rem);margin:13px 0 10px}.platform-story-lead{font-size:.89rem}.platform-highlights{margin-top:12px}.platform-story-actions{margin-top:13px}.platform-timeline{margin-top:16px}.platform-monitor-stage{max-height:70svh}}
+@media(max-height:670px) and (max-width:800px){.platform-scroll-stage{padding-top:65px;padding-bottom:7px}.platform-story-heading{font-size:1.55rem;margin-top:4px}.platform-story-lead{font-size:.69rem}.platform-highlights{margin-top:4px}.platform-story-actions{margin-top:4px}.platform-story-actions .btn{min-height:29px}.platform-timeline{margin-top:5px}.platform-monitor-stage{max-height:34svh}.platform-chapter{min-height:25px}}
+@media(prefers-reduced-motion:reduce){.platform-monitor-image,.platform-dynamic-copy,.platform-timeline>span,.platform-chapter{transition:none!important}}
+
+/* 2026-11: iMac transparente integrado ao fundo, geometria idêntica em todas as telas */
+.platform-monitor-wrap,.platform-monitor-stage,.platform-monitor-column { background: transparent !important; box-shadow: none; }
+.platform-monitor-stage { aspect-ratio:4 / 3; }
+.platform-monitor-image { object-fit:contain; }
+.platform-scroll-stage::before { background:radial-gradient(ellipse 48% 57% at 76% 50%,rgba(9,59,73,.11),transparent 86%); }
+@media (min-width:1200px){.platform-scroll-layout{grid-template-columns:minmax(0,.68fr) minmax(0,1.52fr);gap:clamp(18px,2.8vw,40px)}}
